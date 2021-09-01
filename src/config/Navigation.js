@@ -13,7 +13,11 @@ const AppNavigation = () => {
         screenOptions={{
           headerTitleAlign: 'center',
         }}>
-        <Stack.Screen name="Login Page" component={Login} />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Login Page"
+          component={Login}
+        />
         <Stack.Screen
           options={{headerShown: false}}
           name="Signup"
@@ -25,3 +29,4 @@ const AppNavigation = () => {
 };
 
 export default AppNavigation;
+
