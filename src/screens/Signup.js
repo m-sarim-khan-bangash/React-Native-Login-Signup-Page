@@ -31,11 +31,9 @@ const Signup = props => {
         if (error.code === 'auth/email-already-in-use') {
           console.log('That email address is already in use!');
         }
-
         if (error.code === 'auth/invalid-email') {
           console.log('That email address is invalid!');
         }
-
         console.error(error);
       });
   };
@@ -81,17 +79,18 @@ const Signup = props => {
             <View style={styles.viewText}>
               <Icon name="envelope-o" size={20} color="#f4f4f4" />
               <TextInput
-                onChangeText={text => console.log(text)}
+                onChangeText={text => setEmail(text)}
                 style={styles.input}
                 placeholder="Enter Email"
                 placeholderTextColor="#ccc"
+                keyboardType="email-address"
               />
             </View>
 
             <View style={styles.viewText}>
               <Icon name="lock" size={20} color="#f4f4f4" />
               <TextInput
-                onChangeText={text => console.log(text)}
+                onChangeText={text => setPassword(text)}
                 style={styles.input}
                 placeholder="Enter Password"
                 secureTextEntry={true}
@@ -131,7 +130,19 @@ const Signup = props => {
               <Text style={{color: '#fff', fontSize: 17}}>
                 Signup With Google
               </Text>
-              <Icon name="google" size={25} color="#f4f4f4" />
+              {/* <Icon name="google" size={25} color="#f4f4f4" /> */}
+              <Image
+                style={{
+                  height: 25,
+                  width: 25,
+                  backgroundColor: '#fff',
+                  padding: 10,
+                  borderRadius: 20,
+                }}
+                source={{
+                  uri: 'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png',
+                }}
+              />
             </TouchableOpacity>
           </View>
         </TouchableWithoutFeedback>
@@ -171,7 +182,7 @@ const styles = StyleSheet.create({
     width: '62%',
     borderRadius: 2,
     marginTop: 10,
-    backgroundColor: '#e74c3c',
+    backgroundColor: '#f0324b',
     padding: 10,
     justifyContent: 'space-evenly',
     alignItems: 'center',
@@ -219,5 +230,3 @@ const styles = StyleSheet.create({
 });
 
 export default Signup;
-
-
